@@ -3,9 +3,12 @@ name: fr24feed
 version: '0.0.1'
 summary: Flightradar24 feed
 description: |
-  Flightradar24 operates the world's largest network of ADS-B/Mode S receivers.
-  This network, together with government air traffic control and other data
-  sources, is how Flightradar24 is able to track aircraft around the globe.
+    Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with
+    Flightradar24. It supports multiple receivers, includes all dependencies
+    the DVBT stick and makes the entire feeding process as smooth as possible.
+    Package includes librtlsdr (released under GPLv2) and dump1090 (released
+    under BSD) binaries. Source code can be downloaded from
+    http://feed.flightradar24.com/raspberry-pi.
 
 grade: devel
 confinement: strict
