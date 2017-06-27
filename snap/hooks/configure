@@ -1,14 +1,24 @@
 #!/bin/sh
 
-DEFAULT_FR24KEY="please_set_a_key"
-DEFAULT_RECEIVER="dvbt"
+## Required Configs
 
-echo "Getting config"
+echo "Getting fr24key config"
 fr24key=$(snapctl get "fr24key")
-receiver=$(snapctl get "receiver")
-
-echo "Setting fr24key to ${fr24key}"
+if [ -z "${fr24key}" ]; then
+  echo "fr24key required. Please set before and other configs"
+  exit 1
+fi
 fr24feed --reconfigure --config-file="${SNAP_USER_COMMON}" --fr24key="${fr24key}"
-echo "Setting receiver to ${reciver}"
-fr24feed --reconfigure --config-file="${SNAP_USER_COMMON}" --receiver="${receiver}"
+
+
+## Optional Configs
+
+receiver=$(snapctl get "receiver")
+if [ -z "${receiver}" ]; then
+  echo "Skipping reciver"
+else
+  echo "Setting receiver to ${reciver}"
+  fr24feed --reconfigure --config-file="${SNAP_USER_COMMON}" --receiver="${receiver}"
+fi
+
 echo "Done"
