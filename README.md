@@ -9,6 +9,12 @@ The Flightradar24 fr24feed daemon as a Snap package. [![Snap Status](https://bui
 sudo snap install fr24feed
 ```
 
+## Configure
+```bash
+sudo snap set fr24feed fr24key="YOUR_KEY"
+sudo snap set fr24feed reciver="dvbt"
+```
+
 ## Update
 ```bash
 sudo snap refresh fr24feed
