@@ -1,0 +1,14 @@
+#!/bin/sh
+
+DEFAULT_FR24KEY="please_set_a_key"
+DEFAULT_RECEIVER="dvbt"
+
+echo "Getting config"
+fr24key=$(snapctl get "fr24key")
+receiver=$(snapctl get "receiver")
+
+echo "Setting fr24key to ${fr24key}"
+fr24feed --reconfigure --fr24key="${fr24key}"
+echo "Setting receiver to ${reciver}"
+fr24feed --reconfigure --receiver="${receiver}"
+echo "Done"
