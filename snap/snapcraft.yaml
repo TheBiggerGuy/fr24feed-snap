@@ -1,4 +1,3 @@
-
 name: fr24feed
 version: '0.0.1'
 summary: Flightradar24 feed
@@ -16,7 +15,7 @@ architectures: [armhf]
 
 apps:
   fr24feed:
-    command: fr24feed
+    command: bin/fr24feed
     daemon: simple
     plugs:
      - network
@@ -26,3 +25,12 @@ parts:
     plugin: dump
     source: http://repo.feed.flightradar24.com/rpi_binaries/fr24feed_1.0.18-7_armhf.tgz
     source-type: tar
+    organize:
+      fr24feed: bin/fr24feed
+    filesets:
+      binaries: [ bin/* ]
+      licences: [ LICENSE* ]
+    stage:
+     - $binaries
+     - $licences
+
