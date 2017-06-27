@@ -8,7 +8,7 @@ fr24key=$(snapctl get "fr24key")
 receiver=$(snapctl get "receiver")
 
 echo "Setting fr24key to ${fr24key}"
-fr24feed --reconfigure --fr24key="${fr24key}"
+fr24feed --reconfigure --config-file="${SNAP_USER_COMMON}" --fr24key="${fr24key}"
 echo "Setting receiver to ${reciver}"
-fr24feed --reconfigure --receiver="${receiver}"
+fr24feed --reconfigure --config-file="${SNAP_USER_COMMON}" --receiver="${receiver}"
 echo "Done"

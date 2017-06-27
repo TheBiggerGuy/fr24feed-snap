@@ -15,7 +15,7 @@ architectures: [armhf]
 
 apps:
   fr24feed:
-    command: bin/fr24feed
+    command: 'bin/fr24feed --config-file="${SNAP_USER_COMMON}/fr24feed.ini"'
     daemon: simple
     plugs:
      - network
