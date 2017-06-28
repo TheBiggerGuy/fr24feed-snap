@@ -1,5 +1,12 @@
 #!/bin/sh
 
+## Skip on first run (the install config)
+is_first_run=$(snapctl get "is_first_run")
+if [ -z "${is_first_run}" ]; then
+  echo "Skipping first run config"
+  snapctl set is_first_run=true
+fi
+
 ## Required Configs
 
 echo "Getting fr24key config"
