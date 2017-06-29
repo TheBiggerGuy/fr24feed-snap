@@ -7,13 +7,14 @@ set -o xtrace
 
 ## Config
 declare -rg CONFIG_FILE="${SNAP_USER_COMMON}/fr24feed.ini"
+export PATH="${SNAP}/bin:${PATH}"
 
 ## Show debug info
 echo "Debug info #############################################################"
 env
 pwd
-ls -ahls ${SNAP_DATA}
-ls -ahls ${SNAP_DATA}/bin
+ls -ahls ${SNAP}
+ls -ahls ${SNAP}/bin
 echo "########################################################################"
 
 ## Skip on first run (the install config)
@@ -32,7 +33,7 @@ if [ -z "${fr24key}" ]; then
   echo "fr24key required. Please set before and other configs"
   exit 1
 fi
-./bin/fr24feed --reconfigure --config-file="${CONFIG_FILE}" --fr24key="${fr24key}"
+fr24feed --reconfigure --config-file="${CONFIG_FILE}" --fr24key="${fr24key}"
 
 
 ## Optional Configs
@@ -42,7 +43,7 @@ for key in "receiver" "gt"; do
     echo "Skipping ${key} as not set"
   else
     echo "Setting ${key} to ${value}"
-    ./bin/fr24feed --reconfigure --config-file="${CONFIG_FILE}" --${key}="${value}"
+    fr24feed --reconfigure --config-file="${CONFIG_FILE}" --${key}="${value}"
   fi
 done
 
