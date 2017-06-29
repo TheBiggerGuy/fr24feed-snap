@@ -1,4 +1,12 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+# set -o xtrace
+
+## Config
+declare -rg CONFIG_FILE="${SNAP_USER_COMMON}/fr24feed.ini"
 
 ## Skip on first run (the install config)
 isfirstrun=$(snapctl get "isfirstrun")
@@ -8,25 +16,24 @@ if [ -z "${isfirstrun}" ]; then
   exit
 fi
 
-## Required Configs
 
+## Required Configs
 echo "Getting fr24key config"
 fr24key=$(snapctl get "fr24key")
 if [ -z "${fr24key}" ]; then
   echo "fr24key required. Please set before and other configs"
   exit 1
 fi
-fr24feed --reconfigure --config-file="${SNAP_USER_COMMON}" --fr24key="${fr24key}"
+fr24feed --reconfigure --config-file="${CONFIG_FILE}" --fr24key="${fr24key}"
 
 
 ## Optional Configs
-
 receiver=$(snapctl get "receiver")
 if [ -z "${receiver}" ]; then
   echo "Skipping reciver"
 else
   echo "Setting receiver to ${reciver}"
-  fr24feed --reconfigure --config-file="${SNAP_USER_COMMON}" --receiver="${receiver}"
+  fr24feed --reconfigure --config-file="${CONFIG_FILE}" --receiver="${receiver}"
 fi
 
 echo "Done"
