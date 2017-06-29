@@ -3,10 +3,20 @@
 set -o errexit
 set -o nounset
 set -o pipefail
-# set -o xtrace
+set -o xtrace
 
 ## Config
 declare -rg CONFIG_FILE="${SNAP_USER_COMMON}/fr24feed.ini"
+
+## Show debug info
+echo "Debug info #############################################################"
+env
+pwd
+ls
+ls ../
+ls ../../
+ls ../../../
+echo "########################################################################"
 
 ## Skip on first run (the install config)
 isfirstrun=$(snapctl get "isfirstrun")
