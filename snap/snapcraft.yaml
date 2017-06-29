@@ -34,4 +34,13 @@ parts:
     stage:
      - $binaries
      - $licences
+  config_edit:
+    plugin: dump
+    source: config_edit
+    organize:
+      config_edit: bin/config_edit
+    filesets:
+      binaries: [ bin/* ]
+    stage:
+     - $binaries
 
