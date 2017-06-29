@@ -12,10 +12,8 @@ declare -rg CONFIG_FILE="${SNAP_USER_COMMON}/fr24feed.ini"
 echo "Debug info #############################################################"
 env
 pwd
-ls
-ls ../
-ls ../../
-ls ../../../
+ls -ahls ${SNAP_DATA}
+ls -ahls ${SNAP_DATA}/bin
 echo "########################################################################"
 
 ## Skip on first run (the install config)
