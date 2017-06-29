@@ -24,7 +24,7 @@ if [ -z "${fr24key}" ]; then
   echo "fr24key required. Please set before and other configs"
   exit 1
 fi
-fr24feed --reconfigure --config-file="${CONFIG_FILE}" --fr24key="${fr24key}"
+./bin/fr24feed --reconfigure --config-file="${CONFIG_FILE}" --fr24key="${fr24key}"
 
 
 ## Optional Configs
@@ -34,7 +34,7 @@ for key in "receiver" "gt"; do
     echo "Skipping ${key} as not set"
   else
     echo "Setting ${key} to ${value}"
-    fr24feed --reconfigure --config-file="${CONFIG_FILE}" --${key}="${value}"
+    ./bin/fr24feed --reconfigure --config-file="${CONFIG_FILE}" --${key}="${value}"
   fi
 done
 
