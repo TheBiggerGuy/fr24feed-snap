@@ -19,6 +19,7 @@ apps:
     daemon: simple
     plugs:
      - network
+     - network-observe # required for ping
 
 parts:
   fr24feed:
