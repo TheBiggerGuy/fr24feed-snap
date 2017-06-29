@@ -28,12 +28,14 @@ fr24feed --reconfigure --config-file="${CONFIG_FILE}" --fr24key="${fr24key}"
 
 
 ## Optional Configs
-receiver=$(snapctl get "receiver")
-if [ -z "${receiver}" ]; then
-  echo "Skipping reciver"
-else
-  echo "Setting receiver to ${reciver}"
-  fr24feed --reconfigure --config-file="${CONFIG_FILE}" --receiver="${receiver}"
-fi
+for key in "receiver" "gt"; do
+  value=$(snapctl get "${key}")
+  if [ -z "${value}" ]; then
+    echo "Skipping ${key} as not set"
+  else
+    echo "Setting ${key} to ${value}"
+    fr24feed --reconfigure --config-file="${CONFIG_FILE}" --${key}="${value}"
+  fi
+done
 
 echo "Done"
