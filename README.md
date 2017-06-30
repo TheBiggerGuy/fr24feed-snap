@@ -1,5 +1,5 @@
 # Flightradar24 fr24feed daemon
-The Flightradar24 fr24feed daemon as a Snap package. [![Snap Status](https://build.snapcraft.io/badge/TheBiggerGuy/fr24feed.svg)](https://build.snapcraft.io/user/TheBiggerGuy/fr24feed)
+The Flightradar24 fr24feed daemon as a Snap package. [![Snap Status](https://build.snapcraft.io/badge/TheBiggerGuy/fr24feed-snap.svg)](https://build.snapcraft.io/user/TheBiggerGuy/fr24feed-snap)
 
 
 # Ussage
