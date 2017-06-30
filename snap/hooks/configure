@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
 
+## Config this script
 set -o errexit
 set -o nounset
 set -o pipefail
 set -o xtrace
 
-## Config
 declare -rg CONFIG_FILE="${SNAP_USER_COMMON}/fr24feed.ini"
 declare -rg CONFIG_OPTIONS="fr24key receiver gt"
 export PATH="${SNAP}/bin:${PATH}"
 
-## Optional Configs
+## Ensure config file exists
+touch "${CONFIG_FILE}"
+
+## Copy Snap configs to app configs
 for key in ${CONFIG_OPTIONS}; do
   value=$(snapctl get "${key}")
   if [ -z "${value}" ]; then
