@@ -2,6 +2,7 @@
 
 from configparser import ConfigParser
 from argparse import ArgumentParser
+from os.path import isfile
 
 
 if __name__ == '__main__':
@@ -12,8 +13,9 @@ if __name__ == '__main__':
   args = arg_parser.parse_args()
 
   cfg = ConfigParser()
-  with open(args.file, 'r') as f:
-    cfg.read_file(args.file)
+  if isfile(args.file):
+    with open(args.file, 'r') as f:
+      cfg.read_file(f)
 
   cfg.set(None, args.key, args.value)
 

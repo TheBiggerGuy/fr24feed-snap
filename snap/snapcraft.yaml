@@ -1,5 +1,5 @@
 name: fr24feed
-version: '0.0.1'
+version: '0.0.2'
 summary: Flightradar24 feed
 description: |
     Flightradar24 Decoder & Feeder lets you effortlessly share ADS-B data with
@@ -11,11 +11,11 @@ description: |
 
 grade: devel
 confinement: strict
-architectures: [armhf]
+#architectures: [ armhf ]
 
 apps:
   fr24feed:
-    command: 'bin/fr24feed --config-file="${SNAP_USER_COMMON}/fr24feed.ini"'
+    command: 'fr24feed --config-file="${SNAP_USER_COMMON}/fr24feed.ini"'
     daemon: simple
     plugs:
      - network
@@ -25,7 +25,7 @@ parts:
   fr24feed:
     plugin: dump
     source: http://repo.feed.flightradar24.com/rpi_binaries/fr24feed_1.0.18-7_armhf.tgz
-    source-type: tar
+    #source-checksum: sha3_384/c2610b3697fce23515b557b9e6a52c85ea9d48b5bbaf55b7af37fffffa19074b4a0f4fa352f90ce25b17921615070fd5
     organize:
       fr24feed: bin/fr24feed
     filesets:
@@ -34,11 +34,11 @@ parts:
     stage:
      - $binaries
      - $licences
-  config_edit:
+  fr24config:
     plugin: dump
-    source: config_edit
+    source: .
     organize:
-      config_edit: bin/config_edit
+      fr24config: bin/fr24config
     filesets:
       binaries: [ bin/* ]
     stage:
