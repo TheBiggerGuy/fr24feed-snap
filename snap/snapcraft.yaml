@@ -20,6 +20,7 @@ apps:
     plugs:
      - network
      - network-observe # required for ping
+     - time-control # NTP
 
 parts:
   fr24feed:
