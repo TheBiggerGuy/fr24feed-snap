@@ -20,7 +20,8 @@ apps:
     plugs:
      - network
      - network-bind
-     - network-observe # required for ping
+     - network-observe # required for ping (but doesn't work)
+     - network-control # Fix?? for ping
      - time-control # NTP
 
 parts:
