@@ -24,8 +24,8 @@ apps:
 parts:
   fr24feed:
     plugin: dump
-    source: http://repo.feed.flightradar24.com/rpi_binaries/fr24feed_1.0.18-7_armhf.tgz
-    #source-checksum: sha3_384/c2610b3697fce23515b557b9e6a52c85ea9d48b5bbaf55b7af37fffffa19074b4a0f4fa352f90ce25b17921615070fd5
+    source: http://repo.feed.flightradar24.com/rpi_binaries/fr24feed_1.0.18-9_armhf.tgz
+    #source-checksum: sha3_384/31b529ea4b67c1c61a0d42eb9b887ca4c6a2419fb00759c1511910414a06c167e0f061a50eff9c611946424507cff4aa
     source-type: tar
     organize:
       fr24feed: bin/fr24feed
