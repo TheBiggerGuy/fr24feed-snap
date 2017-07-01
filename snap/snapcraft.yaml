@@ -38,6 +38,7 @@ parts:
      - $licences
     stage-packages:
      - zlib1g
+     - iputils-ping
   fr24config:
     plugin: dump
     source: .
