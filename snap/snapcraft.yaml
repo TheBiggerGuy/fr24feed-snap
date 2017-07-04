@@ -15,15 +15,12 @@ architectures: [ armhf ]
 
 apps:
   fr24feed:
-    command: 'fr24feed --config-file="${SNAP_USER_COMMON}/fr24feed.ini" --logpath="${SNAP_USER_COMMON}" --monitor-file="/dev/shm/snap.${SNAP_NAME}.decoder.txt" --raw=no --bs=no --mpx=no'
+    command: 'fr24feed --config-file="${SNAP_USER_COMMON}/fr24feed.ini" --logpath="${SNAP_USER_COMMON}" --monitor-file="/dev/shm/snap.${SNAP_NAME}.decoder.txt" --raw=no --bs=no --mpx=no --dns-mode=libc'
     daemon: simple
     plugs:
      - network
      - network-bind
-     - network-observe # required for ping (but doesn't work)
-     - network-control # Fix?? for ping
-     - firewall-control # Fix?? for ping
-     - time-control # NTP
+     - network-observe # required for ping
 
 parts:
   fr24feed:
@@ -41,7 +38,6 @@ parts:
      - $licences
     stage-packages:
      - zlib1g
-     - iputils-ping
   fr24config:
     plugin: dump
     source: .
