@@ -7,7 +7,7 @@ set -o pipefail
 set -o xtrace
 
 declare -rg CONFIG_FILE="${SNAP_USER_COMMON}/fr24feed.ini"
-declare -rg CONFIG_OPTIONS="fr24key receiver gt host logmode"
+declare -rg CONFIG_OPTIONS="fr24key receiver gt host logmode mlat mlat-without-gps"
 export PATH="${SNAP}/bin:${PATH}"
 
 ## Ensure config file exists
