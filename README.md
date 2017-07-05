@@ -7,6 +7,7 @@ The Flightradar24 fr24feed daemon as a Snap package. [![Snap Status](https://bui
 ## Install
 ```bash
 sudo snap install fr24feed
+sudo snap connect fr24feed:network-observe
 ```
 
 ## Configure
